@@ -1,0 +1,10 @@
+tasks:
+  Run Django Scraper Automation:
+    shell: python main.py
+
+condaConfigFile: conda.yaml
+artifactsDir: output
+PATH:
+  - .
+PYTHONPATH:
+  - .

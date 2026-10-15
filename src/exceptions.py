@@ -1,16 +1,29 @@
-# Custom exceptions for clean error handling
+# Custom exceptions for clean, enterprise-grade error handling
+
 class ScraperError(Exception):
-    """Base exception for all scraper related errors."""
+    """Base exception for all web scraping and automation-related errors in the project."""
     pass
 
 class ElementNotFoundError(ScraperError):
-    """Raised when a specific web element is not found on the page."""
+    """Raised when a specific web DOM element or Windows UI locator is not found."""
     pass
 
 class NavigationError(ScraperError):
-    """Raised when page fails to load or link clicking fails."""
+    """Raised when a web page fails to load, or UI navigation/clicking fails."""
     pass
 
 class ValidationError(ScraperError):
-    """Raised when the loaded page is incorrect or out of scope (e.g., loaded Part 4 instead of 1-3)."""
+    """Raised when the loaded page or extracted data is incorrect or out of expected scope."""
+    pass
+
+class ScraperTimeoutError(ScraperError):
+    """Raised when a network request, page load, or UI element wait exceeds the maximum allowed time."""
+    pass
+
+class FileOperationError(ScraperError):
+    """Raised when there is a critical failure in creating, reading, or saving the markdown output files."""
+    pass
+
+class RPAExecutionError(ScraperError):
+    """Raised when the Robocorp Desktop Automation (e.g., launching Thunderbird, attaching files) fails."""
     pass
